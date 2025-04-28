@@ -3,7 +3,7 @@ import SectionHeader from './SectionHeader'
 import { FaTools } from "react-icons/fa";
 import { FaHtml5,FaCss3Alt,FaReact,FaNodeJs   } from "react-icons/fa";
 import { RiTailwindCssFill,RiNextjsFill  } from "react-icons/ri";
-import { SiMongodb,SiJavascript,SiExpo  } from "react-icons/si";
+import { SiMongodb,SiJavascript,SiExpo, SiTypescript   } from "react-icons/si";
 import { BiLogoPostgresql } from "react-icons/bi";
 
 
@@ -64,14 +64,19 @@ const Tools = () => {
             name: 'PostgreSQL', 
             style: {style: 'text-[#336791]'}
         },
+        {
+            icon: <SiTypescript />, 
+            name: 'TypeScript', 
+            style: {style: 'text-[#3178c6]'}
+        },
     ]
   return (
     <div>
         <SectionHeader title="Tech Stack & Tools" Icon={FaTools}/>
         <div className='mt-5 flex flex-wrap gap-5 justify-center'>
             {tools.map((tool, index) => (
-                <div key={index} className='flex gap-2 items-center justify-center border border-gray-300 rounded-lg px-1 pr-2 py-2'>
-                    <span className={`text-4xl ${tool.style.style}`}>{tool.icon}</span>
+                <div key={index} className='flex gap-2 items-center justify-center border border-gray-300 rounded-lg px-1 pr-2 py-2 hover:bg-cyan-800 hover:text-white transition'>
+                    <span className={`text-4xl hover:text-white transition ${tool.style.style}`}>{tool.icon}</span>
                     <span>{tool.name}</span>
                 </div>
             ))}

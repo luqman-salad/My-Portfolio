@@ -3,10 +3,6 @@ import React from 'react'
 import IconWrapper from './IconWrapper'
 import { FaFacebookF,FaLinkedin,FaXTwitter,FaGithub,FaBloggerB } from "react-icons/fa6";
 import Link from 'next/link';
-import { Moon } from 'lucide-react'
-
-
-
 
 
 const About = () => {

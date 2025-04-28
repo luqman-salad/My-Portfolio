@@ -1,12 +1,13 @@
 import React from 'react'
 
 const page = async ({params}: {params: Promise<{slug: string}>})  => {
-    const {slug} = await params
+    const {slug} = await params;
+    
   return (
     <div className='mt-25'>
-        Blog Post: {slug}
+      <h1>Hello World</h1>
     </div>
   )
 }
 
-export default page
+export default page;

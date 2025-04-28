@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Exo_2, Inter } from "next/font/google";
-import "./globals.css";
 import Head from "@/components/Head";
 import Footer from "@/components/Footer";
 import "./globals.css";

@@ -4,8 +4,8 @@
 
 "use client";
 
-import { useEffect } from 'react';
-import '../../../globals-studio.css';
+// import { useEffect } from 'react';
+// import '../../../globals-studio.css';
 
 
 
@@ -16,16 +16,16 @@ export default function StudioLayout({
 }) {
 
 
-  useEffect(() => {
-    const headerElement = document.getElementsByTagName("header");
-    const FooterElement = document.getElementsByTagName("footer");
+  // useEffect(() => {
+  //   const headerElement = document.getElementsByTagName("header");
+  //   const FooterElement = document.getElementsByTagName("footer");
 
 
-    FooterElement[0].style.display = "none";
-    headerElement[0].style.display = "none";
+  //   FooterElement[0].style.display = "none";
+  //   headerElement[0].style.display = "none";
 
     
-  }, []);
+  // }, []);
 
 
 

@@ -1,106 +1,77 @@
 import React from 'react'
+import { client } from '@/sanity/lib/client';
+import { getAllPostsQuery } from '@/lib/sanity/queries';
 import SectionHeader from './SectionHeader'
 import { MdArticle } from "react-icons/md";
 import Link from 'next/link';
 import { FaRegClock } from "react-icons/fa6";
 import { FiCalendar } from "react-icons/fi";
 import Image from 'next/image';
+import { urlFor } from '@/lib/sanity/sanityImage';
+import { PortableText } from '@portabletext/react'
 
 
 
 
-const BlogList = () => {
 
-    const ArticleCategories = ["Tech", "Productivity", "AI", "Development"]
+
+const BlogList = async () => {
+
+    const posts = await client.fetch(getAllPostsQuery)
+
+
+    const ArticleCategories = ["All","Tech", "Productivity", "AI", "Development"]
 
   return (
     <div>
         <SectionHeader title="Articles" Icon={MdArticle}/>
-        <div className='text-center my-7'>
+        <div className='text-center py-5 my-2 mx-2 overflow-auto scrollbar-hide'>
             {ArticleCategories.map((category, index) => (
-                <Link href="/"><span className='border-2 border-gray-300 mr-3 py-1 px-5 rounded-lg  hover:border-cyan-700 transition'>{category}</span></Link>
+                <Link href="/" key={index}><span className='border-2 border-gray-300 mr-3 py-1 px-5 rounded-lg  hover:border-cyan-700 transition'>{category}</span></Link>
 
             ))}
         </div>
-        <div className='mt-5'>
-            <div className='sm:flex border border-gray-300 rounded-lg p-3 mb-3'>
-                <div>
-                    <div className='flex gap-x-5 text-gray-500 px-5'>
-                        <span className=''>Tech</span>
-                        <span className='flex items-center gap-x-2'><FaRegClock/> 3 min read</span>
-                        <span className='flex items-center gap-x-2'><FiCalendar/> April 23, 2025</span>
-                    </div>
-                    <h2 className='text-[22px] font-medium'>laqadaha oo lagaa rabo si aad u noqoto Data Scientist</h2>
-                    <p className='text-[15px] text-gray-700'>DataSciece ka waa cilmiga ugu weeyn ee caalamka aan joogno muhiimadiisuna ee aad u sareeyso.....
-                    </p>
-                    <Link href='/' className='text-amber-600'>Read More</Link>
+        <div className='mt-5 mx-5 sm:grid sm:grid-cols-2 gap-2'>
+            {posts.map((post:any) => (
+                <div key={post._id} className="bg-white rounded-lg overflow-hidden shadow p-4 flex flex-col justify-between h-full border border-gray-200">
+                
+                {/* Top Info */}
+                <div className="text-gray-500 text-sm flex gap-4 text-center mb-2">
+                  <span>🕒 {post.readTime} min read</span>
+                  <span>📅 {new Date(post.publishedAt).toDateString()}</span>
                 </div>
-                <div className='flex items-center'>
-                    <Image
-                        src="/techworld.png"
-                        alt='articleThumnail'
-                        width={200}
-                        height={100}
-                        className='my-2 rounded-lg w-full '
-                        
-                    />
+          
+                {/* Title */}
+                <h2 className="text-lg font-semibold text-gray-800 mb-2">{post.title}</h2>
+          
+                {/* Excerpt */}
+                <p className="text-gray-600 text-sm line-clamp-2">{post.excerpt}</p>
+          
+                {/* Read More */}
+                <div className="mt-2">
+                  <Link href={`/blog/${post.slug.current}`} className="text-amber-600 text-sm font-medium hover:underline">
+                    Read More
+                  </Link>
                 </div>
-            </div>
-            <div className='sm:flex border border-gray-300 rounded-lg p-3 mb-3'>
-                <div>
-                    <div className='flex gap-x-5 text-gray-500 px-5'>
-                        <span className=''>Tech</span>
-                        <span className='flex items-center gap-x-2'><FaRegClock/> 3 min read</span>
-                        <span className='flex items-center gap-x-2'><FiCalendar/> April 23, 2025</span>
-                    </div>
-                    <h2 className='text-[22px] font-medium'>laqadaha oo lagaa rabo si aad u noqoto Data Scientist</h2>
-                    <p className='text-[15px] text-gray-700'>DataSciece ka waa cilmiga ugu weeyn ee caalamka aan joogno muhiimadiisuna ee aad u sareeyso.....
-                    </p>
-                    <Link href='/' className='text-amber-600'>Read More</Link>
+
+                
+          
+                {/* Image */}
+                <div className="mt-4">
+                  <Image 
+                    src={urlFor(post.mainImage).url()} 
+                    alt={"title"} 
+                    width={400} 
+                    height={200} 
+                    className="rounded-lg object-cover w-full h-48"
+                  />
                 </div>
-                <div className='flex items-center'>
-                    <Image
-                        src="/techworld.png"
-                        alt='articleThumnail'
-                        width={200}
-                        height={100}
-                        className='my-2 rounded-lg w-full '
-                        
-                    />
-                </div>
-            </div>
-            <div className='sm:flex border border-gray-300 rounded-lg p-3 mb-3'>
-                <div>
-                    <div className='flex gap-x-5 text-gray-500 px-5'>
-                        <span className=''>Tech</span>
-                        <span className='flex items-center gap-x-2'><FaRegClock/> 3 min read</span>
-                        <span className='flex items-center gap-x-2'><FiCalendar/> April 23, 2025</span>
-                    </div>
-                    <h2 className='text-[22px] font-medium'>laqadaha oo lagaa rabo si aad u noqoto Data Scientist</h2>
-                    <p className='text-[15px] text-gray-700'>DataSciece ka waa cilmiga ugu weeyn ee caalamka aan joogno muhiimadiisuna ee aad u sareeyso.....
-                    </p>
-                    <Link href='/' className='text-amber-600'>Read More</Link>
-                </div>
-                <div className='flex items-center'>
-                    <Image
-                        src="/techworld.png"
-                        alt='articleThumnail'
-                        width={200}
-                        height={100}
-                        className='my-2 rounded-lg w-full '
-                        
-                    />
-                </div>
-            </div>
-            
-            
-            
+              </div>
+              
+            ))}
+           
         </div>
-        <div>
-            <Link href='/'>
-                <p className='text-center text-lg text-cyan-700'>Load More...</p>
-            </Link>
-        </div>
+        
     </div>
   )
 }

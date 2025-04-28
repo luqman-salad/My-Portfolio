@@ -19,19 +19,18 @@ const Project = ({MiniTitle, Title, Tools, ProjectPic}) => {
   return (
     <div className='mt-5 sm:flex border border-gray-300 rounded-2xl overflow-hidden'>
             <div className='basis-1/2 shrink-0 py-5 px-5 sm:pl-10'>
-                <h3 className='text-lg font-medium'>{MiniTitle}</h3>
-                <h1 className='text-4xl font-bold'>{Title}</h1>
+                <h3 className='text-md font-medium'>{MiniTitle}</h3>
+                <h1 className='text-2xl text-cyan-800 font-bold'>{Title}</h1>
                 <hr className='my-5 text-gray-300'/>
                 <div className='flex flex-wrap gap-3 text-3xl justify-center'>
                   {Tools.map((tool, index) => (
                     <p className={`${styles[index]}`} key={index}>{tool}</p>
                   ))}
                 </div>
-                <Link href='/'>
-                  <button 
-                    type='button' 
-                    className='bg-cyan-900 text-white px-5 py-2 flex rounded-lg cursor-pointer mt-4 hover:bg-white hover:text-black hover:border hover:border-gray-300 transition'
-                    >Visit Live Site <FiArrowUpRight/></button>
+                <Link 
+                  href='/'
+                  className='justify-center bg-cyan-900 border border-cyan-900 text-white px-5 py-2 flex rounded-lg cursor-pointer mt-4 hover:bg-white hover:text-black hover:border hover:border-gray-300 transition'
+                >Visit Live Site <FiArrowUpRight/>
                 </Link>
             </div>
             <div className='relative basis-1/2 shrink-0'>

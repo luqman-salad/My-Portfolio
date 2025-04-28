@@ -3,16 +3,16 @@
 import React, { useState } from 'react'
 import SectionHeader from './SectionHeader'
 import { MdOutlineConnectWithoutContact } from "react-icons/md";
-import { FaEnvelope, FaPhoneAlt, FaWhatsapp   } from "react-icons/fa";
+import { FaEnvelope, FaWhatsapp } from "react-icons/fa";
 import { ToastContainer,toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 
 const ContactMe = () => {
-    const [form, setForm] = useState({name: "", email: "", message: ""})
-    const [status, setStatus] = useState("")
+    const [form, setForm] = useState({name: "", email: "", message: ""});
+    const [status, setStatus] = useState("");
 
     const handleChange = (e) => {
-        setForm({...form, [e.target.name]: e.target.value})
+        setForm({...form, [e.target.name]: e.target.value});
     }
 
     const handleSubmit = async (e) => {
@@ -77,7 +77,6 @@ const ContactMe = () => {
                         onChange={handleChange}
                         required
                         className='border border-gray-300 rounded-lg px-3 py-2 mb-2'
-                        
                     />
                     <input 
                         name='email'
@@ -87,7 +86,6 @@ const ContactMe = () => {
                         onChange={handleChange}
                         required
                         className='border border-gray-300 rounded-lg px-3 py-2 mb-2'
-
                     />
                     <textarea 
                         name='message'
@@ -95,7 +93,6 @@ const ContactMe = () => {
                         onChange={handleChange}
                         value={form.message}
                         className='border border-gray-300 rounded-lg px-3 py-2'
-
                     />
                     <button 
                         type='submit'
@@ -112,4 +109,4 @@ const ContactMe = () => {
   )
 }
 
-export default ContactMe
+export default ContactMe;
