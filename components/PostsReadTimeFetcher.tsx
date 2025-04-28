@@ -5,6 +5,7 @@ import { groq } from "next-sanity";
 import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "@/lib/sanity/sanityImage";
+import { nanoid } from "nanoid"; 
 
 const POSTS_PER_PAGE = 10;
 
@@ -28,10 +29,15 @@ const PostsLoadMore = () => {
   const fetchPosts = async () => {
     setLoading(true);
     const newPosts = await client.fetch(getPostsQuery(start, start + POSTS_PER_PAGE));
-    setPosts((prevPosts) => [...prevPosts, ...newPosts]);
-    setLoading(false);
+    setPosts((prevPosts) => {
+        const existingIds = new Set(prevPosts.map((p) => p._id));
+        const filteredNewPosts = newPosts.filter((post) => !existingIds.has(post._id));
+        return [...prevPosts, ...filteredNewPosts];
+      });
+      setLoading(false);
   };
 
+  
   useEffect(() => {
     fetchPosts();
   }, [start]);

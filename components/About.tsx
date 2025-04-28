@@ -12,7 +12,7 @@ const About = () => {
             src='/profilePic.jpg' alt='profilePic'
             width={100}
             height={100}
-            className='rounded-full ring-3 ring-[#0077b6] shadow-lg shadow-[#016094]'
+            className='rounded-full ring-3 ring-[#0077b6] shadow-lg shadow-[#016094] w-fit'
         />
 
        

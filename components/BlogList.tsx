@@ -25,7 +25,7 @@ const BlogList = async () => {
             ))}
         </div>
         
-        <PostsReadTimeFetcher initialPosts={posts}/>
+        <PostsReadTimeFetcher/>
          
         
     </div>
