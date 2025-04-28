@@ -4,15 +4,9 @@ import { getAllPostsQuery } from '@/lib/sanity/queries';
 import SectionHeader from './SectionHeader'
 import { MdArticle } from "react-icons/md";
 import Link from 'next/link';
-import { FaRegClock } from "react-icons/fa6";
-import { FiCalendar } from "react-icons/fi";
 import Image from 'next/image';
 import { urlFor } from '@/lib/sanity/sanityImage';
-import { PortableText } from '@portabletext/react'
-
-
-
-
+import PostsReadTimeFetcher from './PostsReadTimeFetcher';
 
 
 const BlogList = async () => {
@@ -30,44 +24,12 @@ const BlogList = async () => {
                 <Link href="/" key={index}><span className='border-2 border-gray-300 mr-3 py-1 px-5 rounded-lg  hover:border-cyan-700 transition'>{category}</span></Link>
             ))}
         </div>
-        <div className='mt-5 mx-5 sm:grid sm:grid-cols-2 gap-2'>
-            {posts.map((post:any) => (
-                <Link href={`/blog/${post.slug.current}`} key={post._id} className="bg-white rounded-lg overflow-hidden shadow p-4 flex flex-col justify-between h-full border border-gray-200">
-                
-                {/* Top Info */}
-                <div className="text-gray-500 text-sm flex gap-4 text-center mb-2">
-                  <span>🕒 {post.readTime} min read</span>
-                  <span>📅 {new Date(post.publishedAt).toDateString()}</span>
-                </div>
-          
-                {/* Title */}
-                <div>
-                <h2 className="text-lg font-semibold text-gray-800 mb-2">{post.title}</h2>
-                </div>
-          
-                {/* Excerpt */}
-                <p className="text-gray-600 text-sm line-clamp-2">{post.excerpt}</p>
-                
-          
-                {/* Image */}
-                <div className="mt-4">
-                  <Image 
-                    src={urlFor(post.mainImage).url()} 
-                    alt={"title"} 
-                    width={400} 
-                    height={200} 
-                    className="rounded-lg object-cover w-full h-48"
-                  />
-                </div>
-              </Link>
-              
-              
-            ))}
-           
-        </div>
+        
+        <PostsReadTimeFetcher initialPosts={posts}/>
+         
         
     </div>
   )
 }
 
-export default BlogList
+export default BlogList;

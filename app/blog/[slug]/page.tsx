@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { PortableTextComponent } from '@/components/PortableTextComponent';
 import { urlFor } from '@/sanity/lib/image';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface Post {
   _id: string;
@@ -42,7 +43,7 @@ export default async function SinglePostPage({ params }: { params: { slug: strin
 
   return (
     <div className="mt-25 p-6">
-      <p className='mb-5'>Blog &gt; <span className='text-gray-500'>{post.title}</span></p>
+      <p className='mb-5'><Link href='/blog'>Blog</Link> &gt; <span className='text-gray-500'>{post.title}</span></p>
       <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
 
       {/* AUTHOR and DATE */}
