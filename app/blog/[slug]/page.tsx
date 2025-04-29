@@ -6,6 +6,7 @@ import { urlFor } from '@/sanity/lib/image';
 import Image from 'next/image';
 import Link from 'next/link';
 import CommentForm from '@/components/CommentForm';
+import md5 from 'md5';
 
 
 interface Post {
@@ -20,6 +21,7 @@ interface Post {
   comments?: {
     _id: string;
     name: string;
+    email: string;
     comment: string;
     approved: boolean;
     _createdAt: string;
@@ -97,13 +99,28 @@ export default async function SinglePostPage({ params }: { params: { slug: strin
         Comments ({post.comments?.filter(c => c.approved).length || 0})
         </h2>
         <ul className="space-y-4">
-          {post.comments.filter(c => c.approved).map(comment => (
-            <li key={comment._id} className=" p-4">
-              <p>{comment.name} <span className="text-sm text-gray-600 font-medium">wrote:</span></p>
-              <p className="text-sm text-gray-600 mt-1 ml-5">{comment.comment}</p>
-              <p className="text-xs mt-2 ml-5 text-blue-900">{new Date(comment._createdAt).toLocaleString()}</p>
+          {post.comments.filter(c => c.approved).map(comment => {
+
+            return(
+              <li key={comment._id} className="flex items-start gap-4 mb-10">
+                <div className="min-w-10 min-h-10 rounded-full bg-gray-300 flex items-center justify-center text-sm font-semibold text-white border border-gray-300 shadow-sm">
+                  {comment.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
+                </div>
+              <div>
+                <div className='flex gap-x-10 items-center'>
+                  <span className="text-md font-medium">{comment.name} </span>
+                  <span className="text-xs text-gray-400 mt-2">{new Date(comment._createdAt).toLocaleString()}</span>
+                  
+                  
+                  </div>
+                <p className="text-gray-600 mt-1">{comment.comment}</p>
+                <p ></p>
+              </div>
             </li>
-          ))}
+
+            )
+            
+        })}
         </ul>
       </section>
       )}

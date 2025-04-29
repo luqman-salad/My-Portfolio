@@ -15,6 +15,7 @@
     "@sanity/vision": "^3.86.1",
     "framer-motion": "^12.7.4",
     "lucide-react": "^0.501.0",
+    "md5": "^2.3.0",
     "nanoid": "^5.1.5",
     "next": "15.3.1",
     "next-sanity": "^9.10.2",
