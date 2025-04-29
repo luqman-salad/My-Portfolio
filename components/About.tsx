@@ -28,7 +28,9 @@ const About = () => {
         </div>
         
         <h1 className='mt-5 text-3xl font-medium'>Luqman Salad</h1>
-        <p className='mt-4 text-center text-gray-600'>I'm a software engineer, content creator. I have build inspiring projects like meeting platform, WhatsApp clone. Where I build tools and content that ispire people throught tech.</p>
+        <p className='mt-4 text-center text-gray-600'>
+        I'm a software engineer and content creator focused on AI and tech. I build tools, write tutorials, and share insights to make technology more accessible and inspiring for others.
+        </p>
         <div className='mt-5 flex gap-3'>
             <Link href='https://www.linkedin.com/in/luqman-salad'><IconWrapper Icon={FaLinkedin}/></Link>
             <Link href='https://x.com/luqman_salad'><IconWrapper Icon={FaXTwitter}/></Link>

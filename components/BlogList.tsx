@@ -1,18 +1,10 @@
 import React from 'react'
-import { client } from '@/sanity/lib/client';
-import { getAllPostsQuery } from '@/lib/sanity/queries';
 import SectionHeader from './SectionHeader'
 import { MdArticle } from "react-icons/md";
 import Link from 'next/link';
-import Image from 'next/image';
-import { urlFor } from '@/lib/sanity/sanityImage';
 import PostsReadTimeFetcher from './PostsReadTimeFetcher';
 
-
 const BlogList = async () => {
-
-    const posts = await client.fetch(getAllPostsQuery)
-
 
     const ArticleCategories = ["All","Tech", "Productivity", "AI", "Development"]
 
@@ -26,8 +18,6 @@ const BlogList = async () => {
         </div>
         
         <PostsReadTimeFetcher/>
-         
-        
     </div>
   )
 }

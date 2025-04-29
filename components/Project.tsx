@@ -3,6 +3,11 @@ import { FiArrowUpRight } from "react-icons/fi";
 import Link from 'next/link';
 import Image from 'next/image';
 
+// interface types{
+//   MiniTitle : string,
+//   Title:
+// }
+
 const Project = ({MiniTitle, Title, Tools, ProjectPic}) => {
 
     const styles = [
@@ -17,7 +22,7 @@ const Project = ({MiniTitle, Title, Tools, ProjectPic}) => {
 
 
   return (
-    <div className='mt-5 sm:flex border border-gray-300 rounded-2xl overflow-hidden'>
+    <div className='mt-5 mx-2 sm:flex border border-gray-300 rounded-2xl overflow-hidden'>
             <div className='basis-1/2 shrink-0 py-5 px-5 sm:pl-10'>
                 <h3 className='text-md font-medium'>{MiniTitle}</h3>
                 <h1 className='text-2xl text-cyan-800 font-bold'>{Title}</h1>
@@ -46,4 +51,4 @@ const Project = ({MiniTitle, Title, Tools, ProjectPic}) => {
   )
 }
 
-export default Project
+export default Project;
