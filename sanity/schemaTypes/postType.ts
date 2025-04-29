@@ -7,54 +7,37 @@ export const postType = defineType({
   type: 'document',
   icon: DocumentTextIcon,
   fields: [
-    defineField({
-      name: 'title',
-      type: 'string',
-    }),
-    defineField({
-      name: 'slug',
-      type: 'slug',
-      options: {
-        source: 'title',
-      },
-    }),
-    defineField({
-      name: 'author',
-      type: 'reference',
-      to: {type: 'author'},
-    }),
-    defineField({
-      name: 'mainImage',
+    defineField({ name: 'title', type: 'string' }),
+    defineField({ name: 'slug', type: 'slug', options: { source: 'title' } }),
+    defineField({ name: 'author', type: 'reference', to: {type: 'author'} }),
+    defineField({ 
+      name: 'mainImage', 
       type: 'image',
-      options: {
-        hotspot: true,
-      },
+      options: { hotspot: true },
       fields: [
-        defineField({
-          name: 'alt',
-          type: 'string',
-          title: 'Alternative text',
-        })
+        defineField({ name: 'alt', type: 'string', title: 'Alternative text' })
       ]
     }),
     defineField({
       name: 'categories',
       type: 'array',
-      of: [defineArrayMember({type: 'reference', to: {type: 'category'}})],
+      of: [defineArrayMember({ type: 'reference', to: { type: 'category' } })],
     }),
-    defineField({
-      name: 'publishedAt',
-      type: 'datetime',
-    }),
-    defineField({
-      name: 'readTime',
-      title: 'Estimated Read Time (mins)',
-      type: 'number',
-    }),
+    defineField({ name: 'publishedAt', type: 'datetime' }),
+    defineField({ name: 'readTime', title: 'Estimated Read Time (mins)', type: 'number' }),
+    defineField({ name: 'body', type: 'blockContent' }),
 
+    // 💬 ADD THIS
     defineField({
-      name: 'body',
-      type: 'blockContent',
+      name: 'comments',
+      title: 'Comments',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [{ type: 'comment' }],
+        },
+      ],
     }),
   ],
   preview: {

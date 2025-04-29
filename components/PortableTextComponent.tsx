@@ -42,5 +42,5 @@ interface Props {
 }
 
 export function PortableTextComponent({ value }: Props) {
-  return <PortableText value={value} components={myPortableTextComponents} />;
+  return <PortableText value={value} components={myPortableTextComponents}/>;
 }

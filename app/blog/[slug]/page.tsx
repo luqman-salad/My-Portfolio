@@ -5,6 +5,8 @@ import { PortableTextComponent } from '@/components/PortableTextComponent';
 import { urlFor } from '@/sanity/lib/image';
 import Image from 'next/image';
 import Link from 'next/link';
+import CommentForm from '@/components/CommentForm';
+
 
 interface Post {
   _id: string;
@@ -15,6 +17,13 @@ interface Post {
     name: string;
     image: any;
   };
+  comments?: {
+    _id: string;
+    name: string;
+    comment: string;
+    approved: boolean;
+    _createdAt: string;
+  }[];
 }
 
 
@@ -31,7 +40,15 @@ const query = groq`*[_type == "post" && slug.current == $slug][0]{
   author->{
     name,
     image
+  },
+  comments[]->{
+    _id,
+    name,
+    comment,
+    approved,
+    _createdAt
   }
+
 }`;
 
 export default async function SinglePostPage({ params }: { params: { slug: string } }) {
@@ -42,7 +59,8 @@ export default async function SinglePostPage({ params }: { params: { slug: strin
   }
 
   return (
-    <div className="mt-25 p-6">
+    <div className="mt-20 p-6">
+      {/* <div className='flex h-30 border rounded-lg border-gray-300 mb-5  text-2xl text-gray-600 items-center justify-between'><span>Ads apear here...</span></div> */}
       <p className='mb-5'><Link href='/blog'>Blog</Link> &gt; <span className='text-gray-500'>{post.title}</span></p>
       <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
 
@@ -68,6 +86,30 @@ export default async function SinglePostPage({ params }: { params: { slug: strin
       <div className="prose prose-lg">
         <PortableTextComponent value={post.body} />
       </div>
+
+      <CommentForm postId={post._id}/>
+
+      {/* Approved comments */}
+
+      {post.comments && post.comments.filter(c => c.approved).length > 0 && (
+        <section className="mt-16">
+        <h2 className="text-2xl font-semibold mb-4">
+        Comments ({post.comments?.filter(c => c.approved).length || 0})
+        </h2>
+        <ul className="space-y-4">
+          {post.comments.filter(c => c.approved).map(comment => (
+            <li key={comment._id} className=" p-4">
+              <p>{comment.name} <span className="text-sm text-gray-600 font-medium">wrote:</span></p>
+              <p className="text-sm text-gray-600 mt-1 ml-5">{comment.comment}</p>
+              <p className="text-xs mt-2 ml-5 text-blue-900">{new Date(comment._createdAt).toLocaleString()}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+      )}
+
+      
+
     </div>
   );
 }
