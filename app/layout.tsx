@@ -3,6 +3,7 @@ import { Exo_2, Inter } from "next/font/google";
 import Head from "@/components/Head";
 import Footer from "@/components/Footer";
 import "./globals.css";
+import singleBlogPost from "@/app/blog/[slug]/page";
 
 const inter = Inter({
   variable: "--font-inter",
