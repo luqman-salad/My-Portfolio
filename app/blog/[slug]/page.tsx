@@ -62,7 +62,10 @@ export default async function SinglePostPage({ params }: { params: { slug: strin
 
   return (
     <div className="p-2">
+
+      {/* ads banner */}
       <div className='flex h-[90px] border rounded-lg border-gray-300 mb-5  text-2xl text-gray-600 items-center justify-between'><span>Ads apear here...</span></div>
+
       <p className='mb-5'><Link href='/blog' className='text-cyan-600'>Blog</Link> &gt; <span className='text-gray-500'>{post.title}</span></p>
       <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
 
@@ -89,6 +92,7 @@ export default async function SinglePostPage({ params }: { params: { slug: strin
         <PortableTextComponent value={post.body} />
       </div>
 
+        {/* ads banner */}
       <div className='flex h-[90px] border rounded-lg border-gray-300 mb-5  text-2xl text-gray-600 items-center justify-between'><span>Ads apear here...</span></div>
 
       <CommentForm postId={post._id}/>

@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Menu, X, Moon, Sun } from 'lucide-react';
+import ThemeToggle from './ThemeToggle';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,16 +22,21 @@ export default function Header() {
           <Link href="/#contact" className="hover:transition hover:text-cyan-700 focus:text-cyan-700">Contact</Link>
           
         </nav>
-        <button onClick={() => setIsDark(!isDark)} className='hidden sm:flex text-cyan-700 py-2 px-2 rounded-full border border-gray-200 cursor-pointer bg-white hover:bg-cyan-950 hover:text-white transition-all duration-200 hover:shadow-lg hover:scale-105 hover:-translate-y-1'>
+        {/* <button onClick={() => setIsDark(!isDark)} className='hidden sm:flex text-cyan-700 py-2 px-2 rounded-full border border-gray-200 cursor-pointer bg-white hover:bg-cyan-950 hover:text-white transition-all duration-200 hover:shadow-lg hover:scale-105 hover:-translate-y-1'>
             {isDark ? <Sun className="w-5 h-5 text-yellow-400" /> : <Moon className="w-5 h-5" />}
-          </button>
+          </button> */}
+          <div className='hidden sm:flex'>
+            <ThemeToggle/>
+          </div>
+          
         {/* Mobile Menu Toggle */}
         <div className="sm:hidden flex items-center gap-3">
-          <button onClick={() => setIsDark(!isDark)} className='text-cyan-700 py-2 px-2 rounded-full border border-gray-200 cursor-pointer bg-white hover:bg-cyan-950 hover:text-white transition-all duration-200 hover:shadow-lg hover:scale-105 hover:-translate-y-1'>
+          <ThemeToggle/>
+          {/* <button onClick={() => setIsDark(!isDark)} className='text-cyan-700 py-2 px-2 rounded-full border border-gray-200 cursor-pointer bg-white hover:bg-cyan-950 hover:text-white transition-all duration-200 hover:shadow-lg hover:scale-105 hover:-translate-y-1'>
             {isDark ? <Sun className="w-5 h-5 text-amber-500" /> : <Moon className="w-5 h-5" />}
-          </button>
+          </button> */}
           <button onClick={() => setIsOpen(!isOpen)}>
-            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isOpen ? <X className="w-6 h-6 cursor-pointer" /> : <Menu className="w-6 h-6 cursor-pointer" />}
           </button>
         </div>
       </div>

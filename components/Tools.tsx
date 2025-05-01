@@ -3,7 +3,7 @@ import SectionHeader from './SectionHeader'
 import { FaTools } from "react-icons/fa";
 import { FaHtml5,FaCss3Alt,FaReact,FaNodeJs   } from "react-icons/fa";
 import { RiTailwindCssFill,RiNextjsFill  } from "react-icons/ri";
-import { SiMongodb,SiJavascript,SiExpo, SiTypescript   } from "react-icons/si";
+import { SiMongodb,SiJavascript,SiExpo, SiTypescript, SiShadcnui   } from "react-icons/si";
 import { BiLogoPostgresql } from "react-icons/bi";
 
 
@@ -68,6 +68,11 @@ const Tools = () => {
             icon: <SiTypescript />, 
             name: 'TypeScript', 
             style: {style: 'text-[#3178c6]'}
+        },
+        {
+            icon: <SiShadcnui  />, 
+            name: 'ShadCN', 
+            style: {style: 'text-[#000000]'}
         },
     ]
   return (

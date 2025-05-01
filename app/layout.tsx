@@ -1,9 +1,10 @@
-// NO "use client" here!
-
 import type { Metadata } from "next";
 import { Exo_2, Inter } from "next/font/google";
 import "./globals.css";
 import ClientWrapper from "@/components/ClientWrapper";
+import { ThemeProvider } from 'next-themes';
+import {ToCProvider } from './content/ToCContext'
+
 
 const inter = Inter({ variable: "--font-inter", subsets: ['latin'] });
 const exo2 = Exo_2({ variable: "--font-exo2", subsets: ['latin'] });
@@ -20,9 +21,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${exo2.className} antialiased`}>
-        <ClientWrapper>{children}</ClientWrapper>
+        <ToCProvider >
+        <ThemeProvider attribute="class" enableSystem defaultTheme="system" >
+          <ClientWrapper>
+            {children}
+          </ClientWrapper>
+        </ThemeProvider>
+        </ToCProvider >
       </body>
     </html>
   );
