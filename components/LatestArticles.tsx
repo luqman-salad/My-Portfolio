@@ -7,7 +7,7 @@ import Image from "next/image";
 import { urlFor } from "@/lib/sanity/sanityImage";
 import SectionHeader from "./SectionHeader";
 import { MdArticle } from "react-icons/md";
-
+import Spinner from "@/components/Spinner";
 
 const POSTS_PER_PAGE = 2;
 
@@ -32,14 +32,13 @@ const PostsLoadMore = () => {
     setLoading(true);
     const newPosts = await client.fetch(getPostsQuery(start, start + POSTS_PER_PAGE));
     setPosts((prevPosts) => {
-        const existingIds = new Set(prevPosts.map((p) => p._id));
-        const filteredNewPosts = newPosts.filter((post) => !existingIds.has(post._id));
-        return [...prevPosts, ...filteredNewPosts];
-      });
-      setLoading(false);
+      const existingIds = new Set(prevPosts.map((p) => p._id));
+      const filteredNewPosts = newPosts.filter((post) => !existingIds.has(post._id));
+      return [...prevPosts, ...filteredNewPosts];
+    });
+    setLoading(false);
   };
 
-  
   useEffect(() => {
     fetchPosts();
   }, [start]);
@@ -50,7 +49,7 @@ const PostsLoadMore = () => {
 
   return (
     <div className="mt-5 mx-5">
-        <SectionHeader Icon={MdArticle} title="Latest Articles" />
+      <SectionHeader Icon={MdArticle} title="Latest Articles" />
       <div className="mt-5 sm:grid sm:grid-cols-2 gap-4">
         {posts.map((post) => (
           <Link
@@ -81,14 +80,14 @@ const PostsLoadMore = () => {
 
       {/* Load More Button */}
       <div className="text-center mt-6">
-        <Link 
-            href='/blog'
-            className="bg-cyan-600 hover:bg-cyan-700 text-white py-2 px-6 rounded-lg disabled:opacity-50"
-            >
-            {loading ? "Loading..." : "See More"}
-            
+        <Link
+          href='/blog'
+          className={`bg-cyan-600 hover:bg-cyan-700 text-white py-2 px-6 rounded-lg ${
+            loading ? "pointer-events-none opacity-60" : ""
+          }`}
+        >
+          {loading ? <Spinner /> : "See More"}
         </Link>
-        
       </div>
     </div>
   );

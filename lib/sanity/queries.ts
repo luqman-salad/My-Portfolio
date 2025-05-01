@@ -1,12 +1,10 @@
-export const getAllPostsQuery = `
-*[_type == "post"] | order(publishedAt desc){
-    _id,
-    title,
-    slug,
-    mainImage,
-    publishedAt,
-    readTime,
-    body,
-    "excerpt" : body[0].children[0].text
+// lib/sanity/queries.ts
+import { client } from './client'
+
+export const getPostsByCategory = async (category: string) => {
+  const query = category === 'All'
+    ? `*[_type == "post"] | order(publishedAt desc)`
+    : `*[_type == "post" && "${category}" in categories[]->title] | order(publishedAt desc)`
+  
+  return await client.fetch(query)
 }
-`

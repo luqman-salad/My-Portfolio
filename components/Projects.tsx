@@ -12,6 +12,7 @@ const Projects = () => {
   return (
     <div id='projects' className='mt-20'>
         <SectionHeader title="Side Project" Icon={FaDiagramProject}/>
+        <div className='grid sm:grid-cols-2'>
         <Project
           MiniTitle="ACME CORP • 2025"
           Title='DARK Saas Landing Page'
@@ -42,6 +43,22 @@ const Projects = () => {
           }
           ProjectPic='/nextjsweb.png'
         />
+        <Project
+          MiniTitle="ACME CORP • 2025"
+          Title='DARK Saas Landing Page'
+          Tools={[
+            <FaHtml5/>,
+            <FaCss3Alt/>,
+            <FaReact/>,
+            <FaNodeJs/>,
+            <RiTailwindCssFill/>,
+            <SiMongodb/>,
+            <RiNextjsFill/>
+          ]
+          }
+          ProjectPic='/techworld.png'
+        />
+        </div>
 
 
         

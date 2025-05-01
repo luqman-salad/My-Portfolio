@@ -22,11 +22,19 @@ const Project = ({MiniTitle, Title, Tools, ProjectPic}) => {
 
 
   return (
-    <div className=' mt-5 mx-2 sm:flex border border-gray-300 rounded-2xl overflow-hidden'>
-            <div className='basis-1/2 shrink-0 py-5 px-5 sm:pl-10'>
+    <div className=' mt-5 mx-2 border border-gray-300 rounded-2xl overflow-hidden'>
+            <div className='p-4'>
                 <h3 className='text-md font-medium'>{MiniTitle}</h3>
                 <h1 className='text-2xl text-cyan-800 font-bold'>{Title}</h1>
-                <hr className='my-5 text-gray-300'/>
+                <div className='my-5'>
+                  <Image
+                    src={ProjectPic}
+                    alt='nextjsweb'
+                    width={300}
+                    height={200}
+                    className='w-full h-[200px] rounded-lg'
+                  />
+                </div>
                 <div className='flex flex-wrap gap-3 text-3xl justify-center'>
                   {Tools.map((tool, index) => (
                     <p className={`${styles[index]}`} key={index}>{tool}</p>
@@ -38,15 +46,7 @@ const Project = ({MiniTitle, Title, Tools, ProjectPic}) => {
                 >Visit Live Site <FiArrowUpRight/>
                 </Link>
             </div>
-            <div className='relative basis-1/2 shrink-0'>
-              <Image
-                src={ProjectPic}
-                alt='nextjsweb'
-                width={710}
-                height={500}
-                className='sm:absolute sm:bottom-[-10] sm:right-[-50]'
-              />
-            </div>
+            
     </div>
   )
 }
