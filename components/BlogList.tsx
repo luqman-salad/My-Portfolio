@@ -13,12 +13,12 @@ const BlogList = () => {
     <div>
       <SectionHeader title="Articles" Icon={MdArticle} />
       
-      <div className='text-center py-5 my-2 mx-2 overflow-auto scrollbar-hide'>
+      <div className='flex text-center py-5 my-2 mx-2 overflow-scroll sm:justify-center scrollbar-hide'>
         {ArticleCategories.map((category) => (
           <button
             key={category}
             onClick={() => setSelectedCategory(category)}
-            className={`border-2 mr-3 py-1 px-5 rounded-full transition ${
+            className={`border-2 mr-3 py-1 px-5 rounded-full transition  ${
               selectedCategory === category ? 'border-cyan-700 text-cyan-700' : 'border-gray-300'
             }`}
           >

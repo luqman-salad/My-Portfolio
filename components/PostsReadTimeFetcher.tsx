@@ -10,7 +10,7 @@ interface Props {
   category: string
 }
 
-const POSTS_PER_PAGE = 2
+const POSTS_PER_PAGE = 2;
 
 const PostsReadTimeFetcher = ({ category }: Props) => {
   const [posts, setPosts] = useState<any[]>([])
@@ -54,7 +54,8 @@ const PostsReadTimeFetcher = ({ category }: Props) => {
   return (
     <div className="mt-4">
       <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
-        {visiblePosts.map((post) => (
+        {visiblePosts.map((post,index) => (
+          <>
           <Link
             href={`/blog/${post.slug.current}`}
             key={post._id}
@@ -78,6 +79,15 @@ const PostsReadTimeFetcher = ({ category }: Props) => {
               </div>
             )}
           </Link>
+          {/* Insert banner after every 4 posts */}
+          {(index + 1) % 2 === 0 && (
+            <div className="col-span-full p-3 border border-gray-200 rounded-lg text-center h-[90px]">
+              <h2 className="text-xl font-semibold mb-2">🚀 Check out our premium content!</h2>
+              <p className="text-gray-700">Subscribe for more articles, tools, and exclusive insights.</p>
+            </div>
+          )}
+          </>
+          
         ))}
       </div>
 
