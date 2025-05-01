@@ -1,4 +1,6 @@
+
 "use client";
+
 import { useState, useEffect } from "react";
 import { client } from "@/sanity/lib/client";
 import { groq } from "next-sanity";
@@ -9,7 +11,7 @@ import SectionHeader from "./SectionHeader";
 import { MdArticle } from "react-icons/md";
 import Spinner from "@/components/Spinner";
 
-const POSTS_PER_PAGE = 2;
+const POSTS_PER_PAGE = 6;
 
 const getPostsQuery = (start: number, end: number) => groq`
   *[_type == "post"] | order(publishedAt desc) [${start}...${end}] {
@@ -43,9 +45,6 @@ const PostsLoadMore = () => {
     fetchPosts();
   }, [start]);
 
-  const handleLoadMore = () => {
-    setStart((prevStart) => prevStart + POSTS_PER_PAGE);
-  };
 
   return (
     <div className="mt-5 mx-5">
@@ -78,7 +77,7 @@ const PostsLoadMore = () => {
         ))}
       </div>
 
-      {/* Load More Button */}
+      {/* See More Articles */}
       <div className="text-center mt-6">
         <Link
           href='/blog'
