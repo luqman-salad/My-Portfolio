@@ -47,20 +47,20 @@ const ContactMe = () => {
         <SectionHeader title="Get in Touch" Icon={MdOutlineConnectWithoutContact}/>
         <div className='mt-5 sm:flex'>
             <div className='basis-1/2 p-5 flex flex-col justify-center items-center shrink-0 sm:p-10'>
-                <div className='w-full flex gap-x-3 items-center border border-gray-300 rounded-lg py-1 px-5 mb-4'>
+                <a href="mailto:luqmansalad00@gmail.com" className='w-full flex gap-x-3 items-center border border-gray-300 rounded-lg py-1 px-5 mb-4'>
                     <FaEnvelope className='text-3xl'/>
                     <div>
                         <h3 className='font-bold'>Email Me At</h3>
                         <p className='text-gray-600'>luqmansalad00@gmail.com</p>
                     </div>
-                </div>
-                <div className='w-full flex gap-x-3 items-center border border-gray-300 rounded-lg py-1 px-5'>
+                </a>
+                <a href="https://wa.me/252616984305?text=Hello%20I%20want%20to%20ask%20about..." className='w-full flex gap-x-3 items-center border border-gray-300 rounded-lg py-1 px-5'>
                     <FaWhatsapp className='text-3xl'/>
                     <div>
                         <h3 className='font-bold'>Get in Touch</h3>
                         <p className='text-gray-600'>+252-616-984-305</p>
                     </div>
-                </div>
+                </a>
                 
             </div>
             <div className='basis-1/2 shrink-0 sm:p-10 p-5'>

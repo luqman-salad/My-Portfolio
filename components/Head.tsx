@@ -10,8 +10,8 @@ export default function Header() {
 
 
   return (
-    <header className=" fixed w-full z-50">
-      <div className="sm:bg-white sm:mt-3 sm:shadow sm:border sm:border-gray-300 sm:rounded-full max-w-3xl mx-auto px-4 py-2 flex justify-between items-center">
+    <div className=" fixed w-full z-50">
+      <div className="bg-white dark:bg-gray-600 sm:mt-3 sm:shadow sm:border sm:border-gray-300 sm:rounded-full max-w-3xl mx-auto px-4 py-2 flex justify-between items-center">
         <Link href="/" className="text-xl font-bold">
           {/* LuqmanS */}
         </Link>
@@ -49,6 +49,6 @@ export default function Header() {
           <Link onClick={() => setIsOpen(false)} href="/#contact" className="block py-2">Contact</Link>
         </div>
       )}
-    </header>
+    </div>
   );
 }

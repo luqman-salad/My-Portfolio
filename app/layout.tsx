@@ -22,7 +22,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${exo2.className} antialiased`}>
+      <body className={`${exo2.className} antialiased bg-white text-black dark:bg-black dark:text-white transition-colors duration-300`}>
         <ToCProvider >
         <ThemeProvider attribute="class" enableSystem defaultTheme="system" >
           <ClientWrapper>

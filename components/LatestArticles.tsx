@@ -11,7 +11,7 @@ import SectionHeader from "./SectionHeader";
 import { MdArticle } from "react-icons/md";
 import Spinner from "@/components/Spinner";
 
-const POSTS_PER_PAGE = 6;
+const POSTS_PER_PAGE = 2;
 
 const getPostsQuery = (start: number, end: number) => groq`
   *[_type == "post"] | order(publishedAt desc) [${start}...${end}] {
