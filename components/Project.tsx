@@ -8,7 +8,7 @@ import Image from 'next/image';
 //   Title:
 // }
 
-const Project = ({MiniTitle, Title, Tools, ProjectPic}) => {
+const Project = ({MiniTitle, Title, Tools, ProjectPic, siteLink}) => {
 
     const styles = [
         'hover:text-[#E34F26] transition',
@@ -41,7 +41,7 @@ const Project = ({MiniTitle, Title, Tools, ProjectPic}) => {
                   ))}
                 </div>
                 <Link 
-                  href='/'
+                  href={siteLink}
                   className='justify-center bg-cyan-900 border border-cyan-900 text-white px-5 py-2 flex rounded-lg cursor-pointer mt-4 hover:bg-white hover:text-black hover:border hover:border-gray-300 transition'
                 >Visit Live Site <FiArrowUpRight/>
                 </Link>

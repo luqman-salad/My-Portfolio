@@ -14,50 +14,30 @@ const Projects = () => {
         <SectionHeader title="Side Project" Icon={FaDiagramProject}/>
         <div className='grid sm:grid-cols-2'>
         <Project
-          MiniTitle="ACME CORP • 2025"
-          Title='DARK Saas Landing Page'
+          MiniTitle="Assembly Game • 2025"
+          Title='Assembly Endgame with winning and loss reactions'
           Tools={[
             <FaHtml5/>,
             <FaCss3Alt/>,
             <FaReact/>,
-            <FaNodeJs/>,
             <RiTailwindCssFill/>,
-            <SiMongodb/>,
-            <RiNextjsFill/>
-          ]
-          }
-          ProjectPic='/nextjsweb.png'
+          ]}
+          ProjectPic='/assemblyendgame.jpg'
+          siteLink='https://luqman-salad.github.io/assemblyEndGame/'
         />
         <Project
-          MiniTitle="ACME CORP • 2025"
-          Title='DARK Saas Landing Page'
+          MiniTitle="Tenzies • 2025"
+          Title='Tenzies: Roll, Match, and Freeze the Dice!'
           Tools={[
             <FaHtml5/>,
             <FaCss3Alt/>,
             <FaReact/>,
-            <FaNodeJs/>,
-            <RiTailwindCssFill/>,
-            <SiMongodb/>,
-            <RiNextjsFill/>
-          ]
-          }
-          ProjectPic='/nextjsweb.png'
+            <RiTailwindCssFill/>
+          ]}
+          ProjectPic='/tenzies.jpg'
+          siteLink='https://luqman-salad.github.io/tenziess/'
         />
-        <Project
-          MiniTitle="ACME CORP • 2025"
-          Title='DARK Saas Landing Page'
-          Tools={[
-            <FaHtml5/>,
-            <FaCss3Alt/>,
-            <FaReact/>,
-            <FaNodeJs/>,
-            <RiTailwindCssFill/>,
-            <SiMongodb/>,
-            <RiNextjsFill/>
-          ]
-          }
-          ProjectPic='/techworld.png'
-        />
+        
         </div>
 
 

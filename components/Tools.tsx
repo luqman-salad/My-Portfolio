@@ -20,6 +20,11 @@ const Tools = () => {
             style: {style: 'text-[#38BDF8]'}
         },
         {
+            icon: <SiTypescript />, 
+            name: 'TypeScript', 
+            style: {style: 'text-[#3178c6]'}
+        },
+        {
             icon: <FaHtml5/>, 
             name: 'HTML5', 
             style: {style: 'text-[#E34F26]'}
@@ -44,11 +49,7 @@ const Tools = () => {
             name: 'Nextjs', 
             style: {style: 'text-[#000000]'}
         },
-        {
-            icon: <FaNodeJs/>, 
-            name: 'Nodejs', 
-            style: {style: 'text-[#339933]'}
-        },
+        
         {
             icon: <FaReact/>, 
             name: 'React Native', 
@@ -64,10 +65,11 @@ const Tools = () => {
             name: 'PostgreSQL', 
             style: {style: 'text-[#336791]'}
         },
+        
         {
-            icon: <SiTypescript />, 
-            name: 'TypeScript', 
-            style: {style: 'text-[#3178c6]'}
+            icon: <FaNodeJs/>, 
+            name: 'Nodejs', 
+            style: {style: 'text-[#339933]'}
         },
         {
             icon: <SiShadcnui  />, 
@@ -78,7 +80,7 @@ const Tools = () => {
   return (
     <div>
         <SectionHeader title="Tech Stack & Tools" Icon={FaTools}/>
-        <div className='mt-5 flex flex-wrap gap-5 justify-center'>
+        <div className='mt-5 flex flex-wrap gap-3 justify-center'>
             {tools.map((tool, index) => (
                 <div key={index} className='flex gap-2 items-center justify-center border border-gray-300 rounded-lg px-1 pr-2 py-2 hover:bg-cyan-800 hover:text-white transition'>
                     <span className={`text-4xl hover:text-white transition ${tool.style.style}`}>{tool.icon}</span>
