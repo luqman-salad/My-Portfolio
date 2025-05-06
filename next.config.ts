@@ -4,10 +4,7 @@ const isProd = process.env.NODE_ENV === 'production';
 
 const nextConfig: NextConfig = {
   /* config options here */
-  eslint: {
-    // ✅ Skip ESLint checks during builds (e.g. on Vercel)
-    ignoreDuringBuilds: true,
-  },
+  
   images: {
     domains: ["cdn.sanity.io"],
 
