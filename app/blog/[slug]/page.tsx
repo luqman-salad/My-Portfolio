@@ -1,4 +1,4 @@
-'use server'; // Ensure it's a server component
+'use server';
 
 import { client } from '@/sanity/lib/client';
 import { groq } from 'next-sanity';
@@ -9,7 +9,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import CommentForm from '@/components/CommentForm';
 
-// Define Post Type
 interface Post {
   _id: string;
   title: string;
@@ -54,14 +53,12 @@ const query = groq`*[_type == "post" && slug.current == $slug][0]{
 }`;
 
 type Props = {
-  params: { slug: string };
+  params: Record<string, string>; // Adjusted type for params
 };
 
-// Fetch the post and render the content
 export default async function SinglePostPage({ params }: Props) {
   const post: Post | null = await client.fetch(query, { slug: params.slug });
 
-  // If no post is found, show the not found page
   if (!post) {
     notFound();
   }
@@ -144,7 +141,6 @@ export default async function SinglePostPage({ params }: Props) {
                         </span>
                       </div>
                       <p className="text-gray-600 mt-1">{comment.comment}</p>
-                      <p></p>
                     </div>
                   </li>
                 );
