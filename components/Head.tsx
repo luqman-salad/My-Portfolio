@@ -11,7 +11,7 @@ export default function Header() {
 
   return (
     <div className=" fixed w-full z-50">
-      <div className="sm:bg-white sm:mt-3 sm:shadow sm:border sm:border-gray-300 sm:rounded-full max-w-3xl mx-auto px-4 py-2 flex justify-between items-center">
+      <div className="sm:bg-white sm:mt-3 sm:shadow sm:border sm:border-gray-300 sm:rounded-full max-w-3xl mx-auto px-4 py-3 flex justify-between items-center ">
         <Link href="/" className="text-xl font-bold">
           {/* LuqmanS */}
         </Link>
@@ -26,12 +26,12 @@ export default function Header() {
             {isDark ? <Sun className="w-5 h-5 text-yellow-400" /> : <Moon className="w-5 h-5" />}
           </button> */}
           <div className='hidden sm:flex'>
-            <ThemeToggle/>
+            {/* <ThemeToggle/> */}
           </div>
           
         {/* Mobile Menu Toggle */}
         <div className="sm:hidden flex items-center gap-3">
-          <ThemeToggle/>
+          {/* <ThemeToggle/> */}
           {/* <button onClick={() => setIsDark(!isDark)} className='text-cyan-700 py-2 px-2 rounded-full border border-gray-200 cursor-pointer bg-white hover:bg-cyan-950 hover:text-white transition-all duration-200 hover:shadow-lg hover:scale-105 hover:-translate-y-1'>
             {isDark ? <Sun className="w-5 h-5 text-amber-500" /> : <Moon className="w-5 h-5" />}
           </button> */}

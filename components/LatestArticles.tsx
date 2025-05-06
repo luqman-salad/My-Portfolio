@@ -54,7 +54,7 @@ const PostsLoadMore = () => {
           <Link
             href={`/blog/${post.slug.current}`}
             key={post._id}
-            className="bg-white rounded-lg overflow-hidden shadow p-4 flex flex-col justify-between h-full border border-gray-200 mb-5"
+            className="bg-white rounded-lg overflow-hidden shadow p-4 flex flex-col justify-between h-full border border-gray-200 mb-5 dark:border-cyan-900"
           >
             <div className="text-gray-500 text-sm flex gap-4 text-center mb-2">
               <span>🕒 {post.readTime} min read</span>
