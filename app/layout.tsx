@@ -4,7 +4,7 @@ import "./globals.css";
 import ClientWrapper from "@/components/ClientWrapper";
 import { ThemeProvider } from 'next-themes';
 import {ToCProvider } from './content/ToCContext'
-
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({ variable: "--font-inter", subsets: ['latin'] });
 const exo2 = Exo_2({ variable: "--font-exo2", subsets: ['latin'] });
@@ -27,6 +27,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" enableSystem defaultTheme="system" >
           <ClientWrapper>
             {children}
+            <SpeedInsights/>
           </ClientWrapper>
         </ThemeProvider>
         </ToCProvider >
