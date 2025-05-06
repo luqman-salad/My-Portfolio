@@ -53,7 +53,14 @@ const query = groq`*[_type == "post" && slug.current == $slug][0]{
 
 }`;
 
-export default async function SinglePostPage({ params }: { params: { slug: string } }) {
+
+interface PageProps {
+  params: {
+    slug: string;
+  };
+}
+
+export default async function SinglePostPage({ params }: PageProps){
   const post: Post | null = await client.fetch(query, { slug: params.slug });
 
   if (!post) {
