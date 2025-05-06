@@ -67,6 +67,9 @@ export default async function SinglePostPage({ params }: PageProps){
     notFound();
   }
 
+  console.log('Sanity project ID:', process.env.SANITY_PROJECT_ID);
+
+
   return (
     <div className="p-2">
 
@@ -141,3 +144,5 @@ export default async function SinglePostPage({ params }: PageProps){
     </div>
   );
 }
+
+

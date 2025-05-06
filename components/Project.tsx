@@ -3,11 +3,6 @@ import { FiArrowUpRight } from "react-icons/fi";
 import Link from 'next/link';
 import Image from 'next/image';
 
-// interface types{
-//   MiniTitle : string,
-//   Title:
-// }
-
 const Project = ({MiniTitle, Title, Tools, ProjectPic, siteLink}) => {
 
     const styles = [

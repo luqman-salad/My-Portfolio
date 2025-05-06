@@ -6,3 +6,6 @@ export const client = createClient({
     useCdn: false,
     apiVersion: '2023-01-01'
 })
+
+console.log("Sanity Project ID:", process.env.NEXT_PUBLIC_SANITY_PROJECT_ID);
+console.log("Sanity Dataset:", process.env.NEXT_PUBLIC_SANITY_DATASET);
