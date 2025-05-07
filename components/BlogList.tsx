@@ -18,7 +18,7 @@ const BlogList = () => {
           <button
             key={category}
             onClick={() => setSelectedCategory(category)}
-            className={`border-2 mr-3 py-1 px-5 rounded-full transition  ${
+            className={`border-2 mr-3 py-1 px-5 rounded-full transition cursor-pointer ${
               selectedCategory === category ? 'border-cyan-700 text-cyan-700' : 'border-gray-300'
             }`}
           >

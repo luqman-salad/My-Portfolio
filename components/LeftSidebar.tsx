@@ -12,7 +12,7 @@ export default function LeftSidebar() {
 
   return (
     <div className="fixed">
-      <div className=" p-4 top-20 max-h-[350px] overflow-y-scroll hidden lg:block">
+      <div className=" p-4 top-20 max-h-[350px] max-w-[230px] overflow-y-scroll hidden lg:block">
       <h2 className="text-lg font-bold mb-4">Table of Contents</h2>
       <ul className="space-y-2 ml-5">
         {uniqueToC.map((item) => (
