@@ -29,18 +29,18 @@ interface Post {
 const query = groq`*[_type == "post" && slug.current == $slug][0]{
   _id,
   title,
-  body[] {
+  body[]{
     ...,
-    asset-> {
+    asset->{
       url
     }
   },
   publishedAt,
-  author-> {
+  author->{
     name,
     image
   },
-  comments[]-> {
+  comments[]->{
     _id,
     name,
     comment,
@@ -49,20 +49,7 @@ const query = groq`*[_type == "post" && slug.current == $slug][0]{
   }
 }`;
 
-// ✅ Generate static paths for all blog slugs
-export async function generateStaticParams(): Promise<{ slug: string }[]> {
-  const slugs: string[] = await client.fetch(
-    groq`*[_type == "post" && defined(slug.current)][].slug.current`
-  );
-
-  return slugs.map((slug) => ({ slug }));
-}
-
-export default async function SinglePostPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+const SinglePostPage = async ({ params }: { params: { slug: string } }) => {
   const post: Post | null = await client.fetch(query, { slug: params.slug });
 
   if (!post) {
@@ -77,10 +64,8 @@ export default async function SinglePostPage({
       </div>
 
       <p className="mb-5">
-        <Link href="/blog" className="text-cyan-600">
-          Blog
-        </Link>{' '}
-        &gt; <span className="text-gray-500">{post.title}</span>
+        <Link href="/blog" className="text-cyan-600">Blog</Link> &gt;{' '}
+        <span className="text-gray-500">{post.title}</span>
       </p>
       <h1 className="text-4xl font-bold mb-8">{post.title}</h1>
 
@@ -117,26 +102,18 @@ export default async function SinglePostPage({
       <CommentForm postId={post._id} />
 
       {/* Approved comments */}
-      {post.comments && post.comments.filter((c) => c.approved).length > 0 && (
+      {post.comments && post.comments.filter(c => c.approved).length > 0 && (
         <section className="mt-16">
           <h2 className="text-2xl font-semibold mb-4">
-            Comments ({post.comments?.filter((c) => c.approved).length || 0})
+            Comments ({post.comments?.filter(c => c.approved).length || 0})
           </h2>
           <ul className="space-y-4">
             {post.comments
-              .filter((c) => c.approved)
-              .map((comment) => (
-                <li
-                  key={comment._id}
-                  className="flex items-start gap-4 mb-10"
-                >
+              .filter(c => c.approved)
+              .map(comment => (
+                <li key={comment._id} className="flex items-start gap-4 mb-10">
                   <div className="min-w-10 min-h-10 rounded-full bg-gray-300 flex items-center justify-center text-sm font-semibold text-white border border-gray-300 shadow-sm">
-                    {comment.name
-                      .split(' ')
-                      .map((n) => n[0])
-                      .join('')
-                      .slice(0, 2)
-                      .toUpperCase()}
+                    {comment.name.split(' ').map(n => n[0]).join('').slice(0, 2).toUpperCase()}
                   </div>
                   <div>
                     <div className="flex gap-x-10 items-center">
@@ -154,4 +131,6 @@ export default async function SinglePostPage({
       )}
     </div>
   );
-}
+};
+
+export default SinglePostPage;
