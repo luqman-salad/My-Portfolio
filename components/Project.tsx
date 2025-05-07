@@ -1,9 +1,10 @@
 import React from 'react'
 import { FiArrowUpRight } from "react-icons/fi";
+import { FaGithub } from "react-icons/fa";
 import Link from 'next/link';
 import Image from 'next/image';
 
-const Project = ({MiniTitle, Title, Tools, ProjectPic, siteLink}) => {
+const Project = ({MiniTitle, Title, Tools, ProjectPic, siteLink, githubRepoLink}) => {
 
     const styles = [
         'hover:text-[#E34F26] transition',
@@ -35,11 +36,20 @@ const Project = ({MiniTitle, Title, Tools, ProjectPic, siteLink}) => {
                     <p className={`${styles[index]}`} key={index}>{tool}</p>
                   ))}
                 </div>
-                <Link 
-                  href={siteLink}
-                  className='justify-center bg-cyan-900 border border-cyan-900 text-white px-5 py-2 flex rounded-lg cursor-pointer mt-4 hover:bg-white hover:text-black hover:border hover:border-gray-300 transition'
-                >Visit Live Site <FiArrowUpRight/>
-                </Link>
+                <div className='flex gap-x-1 justify-center'>
+                  <Link 
+                    href={siteLink}
+                    className='w-full justify-center bg-cyan-900 border border-cyan-900 text-white px-5 py-2 flex rounded-lg cursor-pointer mt-4 hover:bg-white hover:text-black hover:border hover:border-gray-300 transition'
+                  >Live Site <FiArrowUpRight/>
+                  </Link>
+                  <Link 
+                    href={githubRepoLink}
+                    className=' w-full justify-center hover:bg-cyan-900 border-gray-300 border hover:text-white  flex items-center rounded-lg cursor-pointer mt-4 bg-white  hover:border hover:border-gray-300 transition gap-x-1'
+                  ><FaGithub/>Github
+                  </Link>
+
+                </div>
+                
             </div>
             
     </div>

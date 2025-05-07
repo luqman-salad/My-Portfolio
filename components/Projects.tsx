@@ -24,6 +24,7 @@ const Projects = () => {
           ]}
           ProjectPic='/assemblyendgame.jpg'
           siteLink='https://luqman-salad.github.io/assemblyEndGame/'
+          githubRepoLink='https://github.com/luqman-salad/assemblyEndGame'
         />
         <Project
           MiniTitle="Tenzies • 2025"
@@ -36,6 +37,7 @@ const Projects = () => {
           ]}
           ProjectPic='/tenzies.jpg'
           siteLink='https://luqman-salad.github.io/tenziess/'
+          githubRepoLink='https://github.com/luqman-salad/tenziess'
         />
         
         </div>
