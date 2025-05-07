@@ -23,12 +23,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${exo2.className} antialiased`}>
         <ToCProvider >
-        <ThemeProvider attribute="class" enableSystem defaultTheme="system" >
+        {/* <ThemeProvider attribute="class" enableSystem defaultTheme="system" > */}
           <ClientWrapper>
             {children}
             <SpeedInsights/>
           </ClientWrapper>
-        </ThemeProvider>
+        {/* </ThemeProvider> */}
         </ToCProvider >
       </body>
     </html>
