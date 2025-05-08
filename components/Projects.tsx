@@ -12,7 +12,7 @@ const Projects = () => {
   return (
     <div id='projects' className='mt-20'>
         <SectionHeader title="Side Project" Icon={FaDiagramProject}/>
-        <div className='grid sm:grid-cols-2'>
+        <div className='grid sm:grid-cols-2 sm:gap-3'>
         <Project
           MiniTitle="Assembly Game • 2025"
           Title='Assembly Endgame with winning and loss reactions'
