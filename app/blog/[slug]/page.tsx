@@ -41,9 +41,9 @@ export default async function SinglePostPage({
 
   return (
     <div className="p-2">
-      <div className="flex h-[90px] border rounded-lg border-gray-300 mb-5 text-2xl text-gray-600 items-center justify-between">
+      {/* <div className="flex h-[90px] border rounded-lg border-gray-300 mb-5 text-2xl text-gray-600 items-center justify-between">
         <span>Ads appear here...</span>
-      </div>
+      </div> */}
 
       <p className="mb-5">
         <Link href="/blog" className="text-cyan-600">Blog</Link> &gt;{' '}
@@ -75,9 +75,11 @@ export default async function SinglePostPage({
         <PortableTextComponent value={post.body} />
       </div>
 
-      <div className="flex h-[90px] border rounded-lg border-gray-300 mb-5 text-2xl text-gray-600 items-center justify-between">
+      {/* Bottom ads banner */}
+
+      {/* <div className="flex h-[90px] border rounded-lg border-gray-300 mb-5 text-2xl text-gray-600 items-center justify-between">
         <span>Ads appear here...</span>
-      </div>
+      </div> */}
 
       <CommentForm postId={post._id} />
 

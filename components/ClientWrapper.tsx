@@ -32,7 +32,7 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
           </main>
 
           <aside className="w-1/5 hidden lg:block">
-            <RightSidebar />
+            {/* <RightSidebar /> */}
           </aside>
         </div>
       ) : (
