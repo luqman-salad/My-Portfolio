@@ -47,7 +47,7 @@ const PostsLoadMore = () => {
 
 
   return (
-    <div className="mt-5 mx-5">
+    <div className="mt-5">
       <SectionHeader Icon={MdArticle} title="Latest Articles" />
       <div className="mt-5 sm:grid sm:grid-cols-2 gap-4">
         {posts.map((post) => (

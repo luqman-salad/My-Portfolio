@@ -3,7 +3,7 @@ import SectionHeader from './SectionHeader'
 import { FaTools } from "react-icons/fa";
 import { FaHtml5,FaCss3Alt,FaReact,FaNodeJs   } from "react-icons/fa";
 import { RiTailwindCssFill,RiNextjsFill  } from "react-icons/ri";
-import { SiMongodb,SiJavascript,SiExpo, SiTypescript, SiShadcnui   } from "react-icons/si";
+import { SiMongodb,SiGithub, SiJavascript,SiExpo, SiTypescript, SiShadcnui,SiSanity    } from "react-icons/si";
 import { BiLogoPostgresql } from "react-icons/bi";
 
 
@@ -76,15 +76,25 @@ const Tools = () => {
             name: 'ShadCN', 
             style: {style: 'text-[#000000]'}
         },
+        {
+            icon: <SiGithub  />, 
+            name: 'Github', 
+            style: {style: 'text-[#000000]'}
+        },
+        {
+            icon: <SiSanity   />, 
+            name: 'Sanity', 
+            style: {style: 'text-[#f43f5e]'}
+        },
     ]
   return (
     <div>
         <SectionHeader title="Tech Stack & Tools" Icon={FaTools}/>
-        <div className='mt-5 flex flex-wrap gap-3 justify-center'>
+        <div className='mt-5 grid grid-cols-3 sm:grid-cols-5 gap-1 justify-center'>
             {tools.map((tool, index) => (
-                <div key={index} className='flex gap-2 items-center justify-center border border-gray-300 rounded-lg px-1 pr-2 py-2 hover:bg-cyan-800 hover:text-white transition'>
+                <div key={index} className='flex flex-col gap-2 items-center justify-center border border-gray-300 rounded-lg px-1 pr-2 py-2 hover:bg-cyan-800 hover:text-white transition'>
                     <span className={`text-4xl hover:text-white transition ${tool.style.style}`}>{tool.icon}</span>
-                    <span>{tool.name}</span>
+                    <span className='text-sm'>{tool.name}</span>
                 </div>
             ))}
         </div>

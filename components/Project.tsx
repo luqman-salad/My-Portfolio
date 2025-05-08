@@ -18,7 +18,7 @@ const Project = ({MiniTitle, Title, Tools, ProjectPic, siteLink, githubRepoLink}
 
 
   return (
-    <div className=' mt-5 mx-2 border border-gray-300 rounded-2xl overflow-hidden'>
+    <div className=' mt-5 border border-gray-300 rounded-2xl overflow-hidden'>
             <div className='p-4'>
                 <h3 className='text-md font-medium'>{MiniTitle}</h3>
                 <h1 className='text-2xl text-cyan-800 font-bold'>{Title}</h1>
