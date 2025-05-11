@@ -3,6 +3,8 @@ import React from 'react'
 import IconWrapper from './IconWrapper'
 import { FaFacebookF,FaLinkedin,FaXTwitter,FaGithub,FaBloggerB } from "react-icons/fa6";
 import Link from 'next/link';
+import { HiOutlineDownload } from "react-icons/hi";
+
 
 
 const About = () => {
@@ -43,8 +45,8 @@ const About = () => {
           <a 
             href='/mycv.pdf'
             download
-            className='border shadow cursor-pointer border-gray-300 rounded-full py-2 px-5 bg-white'
-            type='button'>Download CV</a>
+            className='border flex items-center gap-x-2 shadow cursor-pointer border-gray-300 rounded-full py-2 px-5 bg-white'
+            type='button'><HiOutlineDownload/>Download CV</a>
         </div>
     </div>
   )
