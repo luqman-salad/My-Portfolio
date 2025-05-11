@@ -39,7 +39,13 @@ const About = () => {
             <Link href='/blog'><IconWrapper Icon={FaBloggerB}/></Link>
             
         </div>
-        
+        <div className='mt-5'>
+          <a 
+            href='/mycv.pdf'
+            download
+            className='border shadow cursor-pointer border-gray-300 rounded-full py-2 px-5 bg-white'
+            type='button'>Download CV</a>
+        </div>
     </div>
   )
 }
