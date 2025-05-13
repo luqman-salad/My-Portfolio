@@ -45,7 +45,7 @@ const About = () => {
           <a 
             href='/mycv.pdf'
             download
-            className='border flex items-center gap-x-2 shadow cursor-pointer border-gray-300 rounded-full py-2 px-5 bg-white'
+            className='border-2 flex items-center gap-x-2 shadow cursor-pointer border-gray-300 rounded-full py-2 px-5 bg-white hover:border-cyan-600 transition'
             type='button'><HiOutlineDownload/>Download CV</a>
         </div>
     </div>
