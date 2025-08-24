@@ -43,7 +43,7 @@ const About = () => {
         </div>
         <div className='mt-5'>
           <a 
-            href='/mycv.pdf'
+            href='/luqmansaladcv.pdf'
             download
             className='border-2 flex items-center gap-x-2 shadow cursor-pointer border-gray-300 rounded-full py-2 px-5 bg-white hover:border-cyan-600 transition'
             type='button'><HiOutlineDownload/>Download CV</a>
